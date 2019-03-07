@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-// Confusing test name. Tests that nosurf's context is accessible
+// TestContextIsAccessibleWithContext: Confusing test name. Tests that nosurf's context is accessible
 // when a request with golang's context is passed into Token().
 func TestContextIsAccessibleWithContext(t *testing.T) {
 	succHand := func(w http.ResponseWriter, r *http.Request) {

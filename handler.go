@@ -86,7 +86,7 @@ func extractToken(r *http.Request) []byte {
 	return b64decode(sentToken)
 }
 
-// Constructs a new CSRFHandler that calls
+// New: Constructs a new CSRFHandler that calls
 // the specified handler if the CSRF check succeeds.
 func New(handler http.Handler) *CSRFHandler {
 	baseCookie := http.Cookie{}
@@ -100,7 +100,7 @@ func New(handler http.Handler) *CSRFHandler {
 	return csrf
 }
 
-// The same as New(), but has an interface return type.
+// NewPure: The same as New(), but has an interface return type.
 func NewPure(handler http.Handler) http.Handler {
 	return New(handler)
 }
@@ -193,7 +193,7 @@ func (h *CSRFHandler) handleFailure(w http.ResponseWriter, r *http.Request) {
 	h.failureHandler.ServeHTTP(w, r)
 }
 
-// Generates a new token, sets it on the given request and returns it
+// RegenerateToken: Generates a new token, sets it on the given request and returns it
 func (h *CSRFHandler) RegenerateToken(w http.ResponseWriter, r *http.Request) string {
 	token := generateToken()
 	h.setTokenCookie(w, r, token)
@@ -213,13 +213,13 @@ func (h *CSRFHandler) setTokenCookie(w http.ResponseWriter, r *http.Request, tok
 
 }
 
-// Sets the handler to call in case the CSRF check
+// SetFailureHandler: Sets the handler to call in case the CSRF check
 // fails. By default it's defaultFailureHandler.
 func (h *CSRFHandler) SetFailureHandler(handler http.Handler) {
 	h.failureHandler = handler
 }
 
-// Sets the base cookie to use when building a CSRF token cookie
+// SetBaseCookie: Sets the base cookie to use when building a CSRF token cookie
 // This way you can specify the Domain, Path, HttpOnly, Secure, etc.
 func (h *CSRFHandler) SetBaseCookie(cookie http.Cookie) {
 	h.baseCookie = cookie

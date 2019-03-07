@@ -24,7 +24,7 @@ var (
 	cmMutex    = new(sync.RWMutex)
 )
 
-// Token() takes an HTTP request and returns
+// Token: Token takes an HTTP request and returns
 // the CSRF token for that request
 // or an empty string if the token does not exist.
 //
@@ -45,7 +45,7 @@ func Token(req *http.Request) string {
 	return ctx.token
 }
 
-// Reason() takes an HTTP request and returns
+// Reason: Reason takes an HTTP request and returns
 // the reason of failure of the CSRF check for that request
 //
 // Note that the same availability restrictions apply for Reason() as for Token().

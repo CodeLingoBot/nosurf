@@ -96,7 +96,7 @@ func TestExemptGlobs(t *testing.T) {
 	}
 }
 
-// This only tests that ExemptRegexp handles the argument correctly
+// TestExemptRegexpCall: This only tests that ExemptRegexp handles the argument correctly
 // The matching itself is tested by TestExemptRegexpMatching
 func TestExemptRegexpCall(t *testing.T) {
 	pattern := "^/[rd]ope$"
@@ -156,7 +156,7 @@ func TestExemptRegexpInvalidPattern(t *testing.T) {
 	hand.ExemptRegexp(pattern)
 }
 
-// The same as TestExemptRegexCall, but for the variadic function
+// TestExemptRegexpsCall: The same as TestExemptRegexCall, but for the variadic function
 func TestExemptRegexpsCall(t *testing.T) {
 	// case 1: a slice of strings
 	hand := New(nil)

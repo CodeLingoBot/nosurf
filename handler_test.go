@@ -131,7 +131,7 @@ func TestManualVerify(t *testing.T) {
 	}
 }
 
-// Tests that the token/reason context is accessible
+// TestContextIsAccessible tests that the token/reason context is accessible
 // in the success/failure handlers
 func TestContextIsAccessible(t *testing.T) {
 	// case 1: success
@@ -275,7 +275,7 @@ func TestCustomCookieName(t *testing.T) {
 	}
 }
 
-// For this and similar tests we start a test server
+// TestCorrectTokenPasses: For this and similar tests we start a test server
 // Since it's much easier to get the cookie
 // from a normal http.Response than from the recorder
 func TestCorrectTokenPasses(t *testing.T) {
